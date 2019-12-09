@@ -1,0 +1,117 @@
+$colorOne: #ff7315;
+$colorTwo: #4dd599;
+$colorThree: #767676;
+$colorFour: #ff0000;
+
+$colorLight: #fff;
+$colorDark: #232020;
+
+
+$fontMain: Lato, serif;
+
+$transition: all .7s;
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    font-size: 16px;
+    text-align: center;
+    font-family: $fontMain;
+    color: $colorDark;
+    background-color: $colorThree;
+}
+
+.font{
+
+    &-header{
+        font-size: 22px;
+        font-weight: 100;
+    }
+
+    &-btn{
+        font-family: Lato;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    &-score{
+        font-size: 162px;
+        font-weight: 600;
+        opacity: .3;
+    }
+
+    &-text{
+        text-transform: uppercase;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    &-rounds{
+        font-size: 26px;
+        font-weight: 300;
+        color: $colorFour;
+        opacity: .3;
+        
+        span{
+            display: block;
+            font-size: 36px;
+            font-weight: 600;
+        }
+    }
+
+    &-color__light{
+        color: $colorLight;
+    }
+    
+    &-color__green{
+        color: $colorTwo;
+    }
+
+    &-color__red{
+        color: $colorFour;
+    }
+}
+
+.btn{
+    padding: 8px 20px;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: $transition;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active{
+        transform: translateY(12px);
+    }
+    &-start{
+        min-width: 170px;
+        border: 2px solid $colorLight;         
+        margin-right: 25px;
+
+        &:hover{
+            background-color: $colorLight;
+            color: $colorDark;
+        }
+    }
+
+    &-choice{
+        width: 130px;
+        margin: 0 6px;
+        background-color: $colorOne;
+        border: 2px solid $colorOne;
+
+        &:hover{
+            background-color: $colorDark;
+            border: 2px solid $colorDark;
+        }
+    }
+}
