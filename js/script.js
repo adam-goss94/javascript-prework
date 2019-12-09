@@ -29,7 +29,7 @@ function game(){
                 resultMsg.textContent = "";
 
                 for(let image of images){
-                    image.src = '../images/blank.png';
+                    image.src = 'images/blank.png';
                 };
 
             }else{
@@ -55,8 +55,8 @@ function game(){
 
                         roundsLeft--;
                         roundsMsg.textContent = roundsLeft;
-                        images[0].src = '../images/' + this.textContent + '.png';
-                        images[1].src = '../images/' + computerMove + '.png';
+                        images[0].src = 'images/' + this.textContent + '.png';
+                        images[1].src = 'images/' + computerMove + '.png';
 
                         compare(computerMove, playerMove);
                     }
