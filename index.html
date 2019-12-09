@@ -11,8 +11,47 @@
 </head>
 <body>
 
+    <header class="page-header font-color__light">
+        <h1 class="page-title font-header">Rock, paper, scissors!</h1>
 
+    </header>
     
+    <section class="page-content">
+        <div class="container">
+            <div class="game-start">
+                <div class="rounds">
+                    <label for="rounds-number">Type number of rounds</label>
+                    <input id="rounds-number" type="number" placeholder="Number" min="1" max="20" step="1" required>
+                    <span id="error-message">Type correct number!</span>
+                </div>
+                <button class="new-game btn btn-start font-btn" id="new-game">New game</button>
+            </div>
+            <div class="game-content">
+                <div class="box game-player">
+                    <h2 class="font-text" id="name-0">Player</h2>
+                    <img src="images/blank.png" alt="Player choice" class="picture" id="player-choice">
+                    <p class="font-score score-holder" id="player-score">0</p>
+                </div>
+                <div class="box game-stats">
+                    <p class="font-rounds">Rounds left:<span id="rounds-left">0</span></p>
+                    <p class="font-text display-none" id="result-message">Press new game!</p>
+                    <div class="player-buttons">
+                    <p>Choose!</p>
+                    <button class="btn btn-choice font-btn font-color__light" id="btn-rock">Rock</button>
+                    <button class="btn btn-choice font-btn font-color__light" id="btn-paper">Paper</button>
+                    <button class="btn btn-choice font-btn font-color__light" id="btn-scisors">Scissors</button>                
+                </div>
+                </div>
+                <div class="box game-computer">
+                    <h2 class="font-text" id="name-1">Computer</h2> 
+                    <img src="images/blank.png" alt="Computer choice" class="picture" id="computer-choice">
+                    <p class="font-score score-holder" id="computer-score">0</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <script src="js/script.js"></script>
 </body>
 </body>
