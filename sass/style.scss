@@ -29,8 +29,8 @@ body{
 .font{
 
     &-header{
-        font-size: 22px;
-        font-weight: 100;
+        font-size: 42px;
+        font-weight: 600;
     }
 
     &-btn{
@@ -48,7 +48,7 @@ body{
 
     &-text{
         text-transform: uppercase;
-        font-size: 36px;
+        font-size: 30px;
         font-weight: 600;
     }
 
@@ -94,24 +94,81 @@ body{
     }
     &-start{
         min-width: 170px;
-        border: 2px solid $colorLight;         
+        border: 2px solid $colorDark;         
         margin-right: 25px;
+        margin: 0 auto;
 
         &:hover{
-            background-color: $colorLight;
-            color: $colorDark;
+            background-color: $colorDark;
+            color: $colorLight;
         }
     }
 
     &-choice{
         width: 130px;
-        margin: 0 6px;
+        padding: 6px 6px;
+        margin-top: 10px;
         background-color: $colorOne;
         border: 2px solid $colorOne;
 
         &:hover{
             background-color: $colorDark;
             border: 2px solid $colorDark;
+        }
+    }
+}
+
+
+section{
+    padding: 78px 0;
+}
+
+
+
+.page-header{
+    padding: 22px 0;
+    background-color: $colorDark;
+}
+
+.page-content{
+
+    .container{
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background-color: $colorLight;       
+    }
+
+    .game-start{
+        position: relative;
+
+        #error-message{
+            display: none;
+            position: absolute;
+        }
+
+        button{
+            margin: 20px 0;
+        }
+    }
+
+    .game-content{
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+    
+        img{
+            width: 200px;
+            object-fit: cover;
+        }
+
+        .box{
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
     }
 }
