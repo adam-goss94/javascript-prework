@@ -1,15 +1,51 @@
 
-game();
 
-function game(){
+
+const game = () => {
     let gamePlaying, playerScore, computerScore, roundsLeft;
     const resultMsg = document.getElementById('result-message');    
     const roundsMsg = document.getElementById('rounds-left');  
-    const images = document.querySelectorAll('img');
+    const images = document.querySelectorAll('img');    
 
-    startGame();
+    const choices = () =>{
+        const playerChoice = document.querySelectorAll('.btn-choice');
 
-    function startGame(){
+        playerChoice.forEach(function(choice) {
+            choice.addEventListener('click', function(){
+                const rNumber = Math.floor(Math.random()*3);
+                const computerChoices = ['Rock', 'Paper', 'Scissors'];
+                const computerMove = computerChoices[rNumber];
+                const playerMove = this.textContent;                
+
+                if(gamePlaying){
+                    if(roundsLeft > 0){
+
+                        roundsLeft--;
+                        roundsMsg.textContent = roundsLeft;
+                        images[0].src = 'images/' + this.textContent + '.png';
+                        images[1].src = 'images/' + computerMove + '.png';
+
+                        compare(computerMove, playerMove);
+                    }
+                    
+                    if(roundsLeft === 0){
+                        gamePlaying = false;
+                        if(playerScore > computerScore){
+                            resultMsg.textContent = 'you won the game!';
+                            return;
+                        }else if(computerScore > playerScore){
+                            resultMsg.textContent = 'you lost the game!';
+                            return;
+                        }else{
+                            resultMsg.textContent = 'the game ended in a draw!'
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    const startGame = () =>{
         const startBtn = document.getElementById('new-game');
 
         startBtn.addEventListener('click', function(){
@@ -40,44 +76,17 @@ function game(){
         choices();
     }
 
-    function choices(){
-        const playerChoice = document.querySelectorAll('.btn-choice');
+    startGame();
+   
+    const upScore = () =>{
+        const pScore = document.getElementById('player-score');
+        const cScore = document.getElementById('computer-score');
 
-        playerChoice.forEach(function(choice) {
-            choice.addEventListener('click', function(){
-                const rNumber = Math.floor(Math.random()*3);
-                const computerChoices = ['Rock', 'Paper', 'Scissors'];
-                const computerMove = computerChoices[rNumber];
-                const playerMove = this.textContent;                
-
-                if(gamePlaying){
-                    if(roundsLeft > 0){
-
-                        roundsLeft--;
-                        roundsMsg.textContent = roundsLeft;
-                        images[0].src = 'images/' + this.textContent + '.png';
-                        images[1].src = 'images/' + computerMove + '.png';
-
-                        compare(computerMove, playerMove);
-                    }
-                    
-                    if(roundsLeft === 0){
-                        if(playerScore > computerScore){
-                            resultMsg.textContent = 'you won the game!';
-                            return;
-                        }else if(computerScore > playerScore){
-                            resultMsg.textContent = 'you lost the game!';
-                            return;
-                        }else{
-                            resultMsg.textContent = 'the game ended in a draw!'
-                        }
-                    }
-                }
-            });
-        });
+        pScore.textContent = playerScore;
+        cScore.textContent = computerScore;
     }
 
-    function compare(computerMove, playerMove){
+    const compare = (computerMove, playerMove) =>{
     
         if(computerMove === playerMove){
             resultMsg.textContent = 'Draw';
@@ -125,14 +134,8 @@ function game(){
                 return;
             }
         }
-    }
-
-    function upScore(){
-        const pScore = document.getElementById('player-score');
-        const cScore = document.getElementById('computer-score');
-
-        pScore.textContent = playerScore;
-        cScore.textContent = computerScore;
-    }
-    
+    }   
 }
+
+
+game();
