@@ -26,6 +26,7 @@ const game = () => {
                         images[1].src = 'images/' + computerMove + '.png';
 
                         compare(computerMove, playerMove);
+                        fillResultsTable(playerMove, computerMove, resultMsg);
                     }
                     
                     if(roundsLeft === 0){
@@ -44,6 +45,13 @@ const game = () => {
             });
         });
     }
+    
+    const resultsHolder = document.querySelector('.results-holder'); 
+
+    const fillResultsTable = (playerMove, computerMove, resultMsg) =>{               
+        const html = '<tr><td>'+playerMove+'</td><td>'+computerMove+'</td><td>'+resultMsg.textContent+'</td></tr>';
+        resultsHolder.insertAdjacentHTML('beforeend', html);       
+    }
 
     const startGame = () =>{
         const startBtn = document.getElementById('new-game');
@@ -55,6 +63,7 @@ const game = () => {
             if(document.getElementById('rounds-number').checkValidity()){
                 const rounds = document.querySelector('input');                
 
+                resultsHolder.innerHTML = '';
                 errorMsg.style.display = 'none';
                 playerScore = 0;
                 computerScore = 0;
