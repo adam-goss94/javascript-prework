@@ -120,7 +120,7 @@ body{
 
 
 section{
-    padding: 78px 0;
+    padding: 78px 0 0 0;
 }
 
 
@@ -130,14 +130,16 @@ section{
     background-color: $colorDark;
 }
 
+.container{
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: $colorLight;       
+}
+
 .page-content{
 
-    .container{
-        max-width: 1250px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        background-color: $colorLight;       
-    }
+    
 
     .game-start{
         position: relative;
@@ -170,5 +172,14 @@ section{
             flex-direction: column;
             justify-content: space-between;
         }
+    }
+}
+
+
+.results table{
+    margin: 20px auto;
+    
+    td{
+        padding: 10px 15px;
     }
 }
