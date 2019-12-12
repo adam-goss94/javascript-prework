@@ -6,6 +6,7 @@ const game = () => {
     const resultMsg = document.getElementById('result-message');    
     const roundsMsg = document.getElementById('rounds-left');  
     const images = document.querySelectorAll('img');    
+    const resultsHolder = document.querySelector('.results-holder');
 
     const choices = () =>{
         const playerChoice = document.querySelectorAll('.btn-choice');
@@ -26,7 +27,7 @@ const game = () => {
                         images[1].src = 'images/' + computerMove + '.png';
 
                         compare(computerMove, playerMove);
-                        fillResultsTable(playerMove, computerMove, resultMsg);
+                        resultsHolder.insertAdjacentHTML('beforeend', '<tr><td>'+playerMove+'</td><td>'+computerMove+'</td><td>'+resultMsg.textContent+'</td></tr>');
                     }
                     
                     if(roundsLeft === 0){
@@ -44,13 +45,6 @@ const game = () => {
                 }
             });
         });
-    }
-    
-    const resultsHolder = document.querySelector('.results-holder'); 
-
-    const fillResultsTable = (playerMove, computerMove, resultMsg) =>{               
-        const html = '<tr><td>'+playerMove+'</td><td>'+computerMove+'</td><td>'+resultMsg.textContent+'</td></tr>';
-        resultsHolder.insertAdjacentHTML('beforeend', html);       
     }
 
     const startGame = () =>{
